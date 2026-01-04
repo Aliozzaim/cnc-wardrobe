@@ -1,3 +1,5 @@
+import { TranslationKey } from "../../../lib/i18n";
+
 export type MaterialType = "MDF" | "Plywood";
 
 export interface Material {

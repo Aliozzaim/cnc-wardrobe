@@ -1,9 +1,10 @@
 import { WardrobeInput } from "../features/wardrobe/domain/types";
+import { TranslationKey } from "../lib/i18n";
 
 export interface WardrobePreset {
   id: string;
-  nameKey: string; // Translation key
-  description: string;
+  nameKey: TranslationKey; // Translation key
+  description: TranslationKey;
   input: WardrobeInput;
 }
 

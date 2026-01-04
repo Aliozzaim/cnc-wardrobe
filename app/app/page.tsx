@@ -101,7 +101,7 @@ export default function Home() {
                     <SelectContent>
                       {WARDROBE_PRESETS.map((preset) => (
                         <SelectItem key={preset.id} value={preset.id}>
-                          {t(preset.nameKey)} - {t(preset.description as TranslationKey)}
+                          {t(preset.nameKey)} - {t(preset.description)}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -406,7 +406,7 @@ export default function Home() {
                           <div className="max-h-32 overflow-y-auto">
                             {calculation.bandCalculation.edges.map((edge, idx) => (
                               <div key={idx} className="text-xs text-muted-foreground flex justify-between py-1">
-                                <span>{t(edge.name)}</span>
+                                <span>{t(edge.name as TranslationKey)}</span>
                                 <span>{edge.lengthMm}mm × {edge.quantity}</span>
                               </div>
                             ))}

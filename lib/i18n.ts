@@ -158,6 +158,12 @@ export const translations = {
       "Configure columns, split doors, and vertical splitters for complex wardrobe designs",
     showAdvancedDoorConfiguration: "Show Advanced Door Configuration",
     hideAdvancedDoorConfiguration: "Hide Advanced Door Configuration",
+    // Simple Door Configuration translations
+    simpleDoorConfiguration: "Simple Door Configuration",
+    addDoorPanels: "Add Door Panels",
+    fullDoorBtn: "Full Door",
+    leftDoorBtn: "Left Door",
+    rightDoorBtn: "Right Door",
   },
   tr: {
     title: "CNC Hazır Dolap Hesaplayıcı",
