@@ -8,6 +8,11 @@ interface GoogleAnalyticsProps {
 
 export function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
     useEffect(() => {
+        // Only load GA if we have a valid measurement ID
+        if (!measurementId || measurementId === 'G-XXXXXXXXXX') {
+            return;
+        }
+
         // Load gtag script
         const script = document.createElement('script');
         script.async = true;

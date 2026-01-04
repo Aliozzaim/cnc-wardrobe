@@ -37,7 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <LanguageProvider>
-            <GoogleAnalytics measurementId="G-XXXXXXXXXX" />
+            <GoogleAnalytics measurementId={process.env.GOOGLE_ANALYTICS!} />
             {children}
           </LanguageProvider>
         </ThemeProvider>
