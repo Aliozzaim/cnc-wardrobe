@@ -58,29 +58,20 @@
   }
 }
 
-/* 3D Wardrobe Styles - Fixed for Visibility */
+/* 3D Wardrobe Styles */
 .wardrobe-3d-container {
-  perspective: 1000px; /* Increased perspective for better visibility */
+  perspective: 1000px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px; /* Increased height */
-  margin: 20px 0;
-  overflow: visible; /* Changed to visible */
-  will-change: transform; /* Hardware acceleration hint */
+  height: 400px;
 }
 
 .wardrobe-3d {
   position: relative;
   transform-style: preserve-3d;
   transform: rotateX(-15deg) rotateY(-25deg);
-  transition: transform 0.2s ease;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  contain: layout style paint; /* Performance optimization */
+  transition: transform 0.3s ease;
 }
 
 .wardrobe-3d:hover {
@@ -89,41 +80,39 @@
 
 .wardrobe-panel {
   position: absolute;
-  border: 1px solid #8b4513; /* Restored border for visibility */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Increased shadow for visibility */
-  background: linear-gradient(145deg, #8b4513, #a0522d);
-  opacity: 0.95; /* Increased opacity */
-  will-change: transform; /* Hardware acceleration */
-  backface-visibility: hidden; /* Performance optimization */
+  background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .back-panel {
-  background: #654321 !important;
-  opacity: 0.8;
+  transform: translateZ(0);
+  background: hsl(var(--muted));
 }
 
 .left-panel {
-  background: linear-gradient(145deg, #8b4513, #a0522d) !important;
-  opacity: 0.85;
+  transform: rotateY(-90deg) translateZ(0) translateX(-50%);
+  transform-origin: left center;
 }
 
 .right-panel {
-  background: linear-gradient(145deg, #8b4513, #a0522d) !important;
-  opacity: 0.85;
+  transform: rotateY(90deg) translateZ(0) translateX(50%);
+  transform-origin: right center;
 }
 
 .top-panel {
-  background: #d2691e !important;
-  opacity: 0.7;
+  transform: rotateX(90deg) translateZ(0) translateY(-50%);
+  transform-origin: top center;
 }
 
 .bottom-panel {
-  background: #d2691e !important;
-  opacity: 0.7;
+  transform: rotateX(-90deg) translateZ(0) translateY(50%);
+  transform-origin: bottom center;
 }
 
 .shelf {
-  background: #cd853f !important;
-  opacity: 0.6;
-  border: 1px solid #8b4513;
+  transform: rotateX(90deg) translateZ(0) translateY(-50%);
+  transform-origin: top center;
+  background: hsl(var(--accent));
+  opacity: 0.8;
 }
