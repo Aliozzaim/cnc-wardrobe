@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "CNC Wardrobe Calculator",
   description: "Calculate and visualize CNC-ready wardrobe parts",
+  verification: {
+    google: "UMQRka03xPCFcWlqR_6-OM21JphtNuyz72AbpHGt8CE",
+  },
 };
 
 export default function RootLayout({
