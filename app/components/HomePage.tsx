@@ -1,16 +1,16 @@
-'use client';
-
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Header } from '@/components/header';
 import { Badge } from '@/components/ui/badge';
 import { Check, Calculator, Cpu, FileText, Ruler } from 'lucide-react';
-import { EdgeBandingInstructions } from '@/components/edge-banding-instructions';
-import { useLanguage } from '@/components/language-provider';
 
-export default function HomePage() {
-    const { t } = useLanguage();
+interface HomePageProps {
+    translations: Record<string, string>;
+}
+
+export default function HomePage({ translations }: HomePageProps) {
+    const t = (key: string) => translations[key] || key;
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">

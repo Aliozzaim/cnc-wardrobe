@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Moon, Sun, Languages } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/button';
@@ -10,12 +11,27 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { useLanguage } from '@/components/language-provider';
-import { Language } from '@/lib/i18n';
+import { Language, translations } from '@/lib/i18n';
 
 export function Header() {
   const { theme, setTheme } = useTheme();
-  const { language, setLanguage, t } = useLanguage();
+  const [language, setLanguage] = useState<Language>('en');
+
+  useEffect(() => {
+    const saved = localStorage.getItem('language') as Language;
+    if (saved && (saved === 'en' || saved === 'tr')) {
+      setLanguage(saved);
+    }
+  }, []);
+
+  const handleSetLanguage = (lang: Language) => {
+    setLanguage(lang);
+    localStorage.setItem('language', lang);
+    document.cookie = `language=${lang}; path=/; max-age=31536000`; // 1 year
+    window.location.reload();
+  };
+
+  const t = (key: string) => translations[language][key as keyof typeof translations[typeof language]] || key;
 
   return (
     <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -26,7 +42,7 @@ export function Header() {
 
         <div className="flex items-center space-x-2">
           {/* Language Selector */}
-          <Select value={language} onValueChange={(value: Language) => setLanguage(value)}>
+          <Select value={language} onValueChange={handleSetLanguage}>
             <SelectTrigger className="w-[100px]">
               <Languages className="h-4 w-4 mr-2" />
               <SelectValue />

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-import { LanguageProvider } from '@/components/language-provider';
+import { cookies } from 'next/headers';
+import { translations } from '@/lib/i18n';
 import HomePage from './components/HomePage';
-import OnboardingContent from './components/OnboardingContent';
 
 export const metadata: Metadata = {
   title: 'CNC Wardrobe Calculator | Free Online Tool for Woodworkers',
@@ -36,12 +36,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootPage() {
+export default async function RootPage() {
+  const cookieStore = await cookies();
+  const language = (cookieStore.get('language')?.value as 'en' | 'tr') || 'en';
+
   return (
-    <LanguageProvider>
-      <div className="flex flex-col">
-        <HomePage />
-      </div>
-    </LanguageProvider>
+    <div className="flex flex-col">
+      <HomePage translations={translations[language]} />
+    </div>
   );
 }
