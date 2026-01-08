@@ -690,6 +690,66 @@ export default function Home() {
               </div>
             </div>
           </main >
+
+          {/* Contact & Credits Footer */}
+          <footer className="mt-12 py-6 border-t border-gray-200 dark:border-gray-700">
+            <div className="max-w-6xl mx-auto px-4">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+                {/* Carpentry Services Contact */}
+                <div className="flex flex-col sm:flex-row items-center gap-4 text-sm">
+                  <div className="flex items-center gap-2">
+                    <span className="text-lg">📞</span>
+                    <span className="font-medium">{t('carpentryServices')}</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <a
+                      href="https://www.instagram.com/ozzaim_ahsap/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className=" text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                    >
+                      @ozzaim_ahsap
+                    </a>
+                    <span className="text-gray-400">•</span>
+                    <a
+                      href="tel:+905339545508"
+                      className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                    >
+                      +(90) 0533 954 55 08
+                    </a>
+                    <span className="text-gray-400">•</span>
+                    <span className="text-gray-600 dark:text-gray-400">Samsun</span>
+                  </div>
+                </div>
+
+                {/* Website Credits */}
+                <div className="flex flex-col sm:flex-row items-center gap-4 text-sm">
+                  <div className="flex items-center gap-2">
+                    <span className="text-gray-600 dark:text-gray-400">{t('designedAndBuiltBy')}</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <a
+                      href="https://www.aliozzaim.lol/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+                    >
+                      {t('aliOzzAim')}
+                    </a>
+                    <span className="text-gray-400">•</span>
+                    <a
+                      href="https://www.linkedin.com/in/ali-riza-ozzaim-8b1ba320a/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-700 hover:text-blue-800 dark:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
         </div >
       </DoorPanelProvider>
     </LanguageProvider>

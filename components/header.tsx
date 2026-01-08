@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Language, translations } from '@/lib/i18n';
+import Link from 'next/link';
 
 export function Header() {
   const { theme, setTheme } = useTheme();
@@ -36,8 +37,33 @@ export function Header() {
   return (
     <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center justify-between px-4">
-        <div className="flex items-center space-x-2">
-          <h1 className="text-lg font-semibold">{t('title')}</h1>
+        <div className=" flex h-14 items-center justify-between px-4">
+          <Link
+            href="/"
+            className="text-sm font-medium text-text-gray-900 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+          >
+            <h1 className="text-lg font-semibold">{t('title')}</h1>
+          </Link>
+          <nav className=" ml-12 hidden md:flex items-center space-x-4 ">
+            <Link
+              href="/"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+            >
+              {t('home')}
+            </Link>
+            <Link
+              href="/app"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+            >
+              {t('calculator')}
+            </Link>
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white transition-colors"
+            >
+              {t('contact')}
+            </Link>
+          </nav>
         </div>
 
         <div className="flex items-center space-x-2">
